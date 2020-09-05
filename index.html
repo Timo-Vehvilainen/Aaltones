@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Viihdeorkesteri Aaltones</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #777;
+  }
+  h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: #111;
+  }
+  .container {
+    padding: 80px 120px;
+  }
+  .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: #f1f1f1;
+  }
+  .carousel-inner img {
+    /*-webkit-filter: grayscale(90%);*/
+    /*filter: grayscale(90%);*/ /* make all photos black and white */ 
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+  }
+  .carousel-caption h3 {
+    color: #000 !important;
+  }
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: #555;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #f1f1f1;
+    border-radius: 0;
+    transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .modal-header, h4, .close {
+    background-color: #333;
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+  .nav-tabs li a {
+    color: #777;
+  }
+  #googleMap {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }  
+  .navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #fbd32d;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+    color: #000 !important;
+  }
+  .navbar-nav li a:hover {
+    color: #000 !important;
+    background-color: #fbe47b !important;
+  }
+  .navbar-nav li.active a {
+    color: #000 !important;
+    background-color: #c4a323 !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+    color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+    background-color: red !important;
+  }
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  .form-control {
+    border-radius: 0;
+  }
+  textarea {
+    resize: none;
+  }
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">AALTONES</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#myPage">KOTI</a></li>
+        <li><a href="#band">BÄNDI</a></li>
+        <!---<li><a href="#tour">MUSIIKKI</a></li>-->
+        <li><a href="#contact">KONTAKTI</a></li>
+        <!--<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">MUUTA
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Tilaa</a></li>
+            <li><a href="#">Meidät</a></li>
+            <li><a href="#">Mediaa</a></li> 
+          </ul>
+        </li>
+        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
+    -->  
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="aaltones_logo.png" alt="Logo" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3></h3>
+          <p style="color:black">Monipuolista viihdemusiikkia tapahtumaasi.</p>
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="carousel_img1.jpg" alt="Gravitaatiokeikka Apollossa" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>MASSAA</h3>
+          <p style="color:white">14-henkinen joukkomme tuo mukanaan bilefiiliksen juhliin kuin juhliin</p>
+        </div>      
+      </div>
+    
+      <div class="item">
+        <img src="carousel_img2.jpg" alt="Los Angeles" width="1200" height="700">
+        <div class="carousel-caption">
+          <h3>MEININKIÄ</h3>
+          <p style="color:white">Tanssijalka vipattaa taatusti niin lavalla kuin sen edessäkin.</p>
+        </div>      
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Edellinen</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Seuraava</span>
+    </a>
+</div>
+
+<!-- Container (The Band Section) -->
+<div id="band" class="container text-center">
+  <h3>Bändi</h3>
+  <p><em>Rakastamme musiikkia</em></p>
+  <p>Bändimme koostuu neljästä eri sektiosta, kaikki täynnä instrumenttiensa huippuosaajia.</p>
+  <br>
+  <div class="row">
+    <div class="col-sm-3">
+      <p class="text-center"><strong>Komppi</strong></p><br>
+      <a href="#demo" data-toggle="collapse">
+        <img src="rhythm.jpg" class="img-circle person" alt="Komppi" width="255" height="255">
+      </a>
+      <div id="demo" class="collapse">
+        <p>Kitara, Basso, Rummut ja koskettimet</p>
+        <p>Groovea riittää</p>
+        <p>Luovat vakaan pohjan muiden sektioiden toiminnalle!</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <p class="text-center"><strong>Torvet</strong></p><br>
+      <a href="#demo2" data-toggle="collapse">
+        <img src="horns.jpg" class="img-circle person" alt="Torvet" width="255" height="255">
+      </a>
+      <div id="demo2" class="collapse">
+        <p>Viisihenkinen torvisektio (2x saxofoni, 2x trumpetti, pasuuna)</p>
+        <p>Tuovat mitä maukkaimman vaskilikit suoraan soittajien huulilta kuulijoiden korviin.</p>
+        <p>Nostavat tasomme normaalista bilebandistä kokonaiseksi viihdeorkesteriksi!</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <p class="text-center"><strong>Laulut</strong></p><br>
+      <a href="#demo3" data-toggle="collapse">
+        <img src="singers.jpg" class="img-circle person" alt="Laulut" width="255" height="255">
+      </a>
+      <div id="demo3" class="collapse">
+        <p>4-osainen laulusektio pitää huolta yleisön viihdytyksestä</p>
+        <p>Sekakvartetti taivuttaa biisin kuin biisin ansaitsemaansa loistoon</p>
+        <p>Mieltähiveleviä harmonioita kaikkialla!</p>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <p class="text-center"><strong>Johto</strong></p><br>
+      <a href="#demo4" data-toggle="collapse">
+        <img src="conductor.jpg" class="img-circle person" alt="Johto" width="255" height="255">
+      </a>
+      <div id="demo4" class="collapse">
+        <p>Bändin esiintymistä ja harjoittelua johtaa Jukka Sainio.</p>
+        <p>Pitkän linjan kokemus bänditoiminnasta antaa varman otteen valintoihin.</p>
+        <p>Kuntakunnan makein punainen liivi!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="tour" class="bg-1">
+    <div class="container">
+
+    <h3 class="text-center">Tähän vaikka musiikkiklippejä/videota</h3>
+    <p class="text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div>
+</div>
+
+<!-- Container (TOUR Section)
+<div id="tour" class="bg-1">
+  <div class="container">
+    <h3 class="text-center">TOUR DATES</h3>
+    <p class="text-center">Lorem ipsum we'll play you some music.<br> Remember to book your tickets!</p>
+    <ul class="list-group">
+      <li class="list-group-item">September <span class="label label-danger">Sold Out!</span></li>
+      <li class="list-group-item">October <span class="label label-danger">Sold Out!</span></li> 
+      <li class="list-group-item">November <span class="badge">3</span></li> 
+    </ul>
+    
+    <div class="row text-center">
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="paris.jpg" alt="Paris" width="400" height="300">
+          <p><strong>Paris</strong></p>
+          <p>Friday 27 November 2015</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="newyork.jpg" alt="New York" width="400" height="300">
+          <p><strong>New York</strong></p>
+          <p>Saturday 28 November 2015</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <img src="sanfran.jpg" alt="San Francisco" width="400" height="300">
+          <p><strong>San Francisco</strong></p>
+          <p>Sunday 29 November 2015</p>
+          <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   Modal 
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+       Modal content
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">×</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Tickets</h4>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label for="psw"><span class="glyphicon glyphicon-shopping-cart"></span> Tickets, $23 per person</label>
+              <input type="number" class="form-control" id="psw" placeholder="How many?">
+            </div>
+            <div class="form-group">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Send To</label>
+              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+            </div>
+              <button type="submit" class="btn btn-block">Pay 
+                <span class="glyphicon glyphicon-ok"></span>
+              </button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+            <span class="glyphicon glyphicon-remove"></span> Cancel
+          </button>
+          <p>Need <a href="#">help?</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container">
+  <h3 class="text-center">Kontakti</h3>
+  <p class="text-center"><em>Ota yhteyttä!</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p>Kiinnostuitko? Pistä viestiä, taikka fanipostia!</p>
+      <!--<p><span class="glyphicon glyphicon-map-marker"></span>Chicago, US</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +00 1515151515</p>-->
+      <p><span class="glyphicon glyphicon-envelope"></span>kaikki.tahdet@gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="name" name="name" placeholder="Nimi" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="comments" placeholder="Viestisi" rows="5"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Lähetä</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class="text-center">Quoteja</h3>  
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Jukka</a></li>
+    <li><a data-toggle="tab" href="#menu1">Joel</a></li>
+    <li><a data-toggle="tab" href="#menu2">Aleksi</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+      <h2></h2>
+      <p>Yy, kaa, koo, nee</p>
+    </div>
+    <div id="menu1" class="tab-pane fade">
+      <h2></h2>
+      <p>Dadadadadadada</p>
+    </div>
+    <div id="menu2" class="tab-pane fade">
+      <h2></h2>
+      <p>Antakaas kun kerron kaskun...</p>
+    </div>
+  </div>
+</div>
+
+<!-- Image of location/map -->
+<img src="map.jpg" class="img-responsive" style="width:100%">
+
+<!-- Footer -->
+<footer class="text-center">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Seuraa meitä <a href="https://www.facebook.com/pages/category/Musician-Band/Viihdeorkesteri-Aaltones-271195533774036/" data-toggle="tooltip" title="Linkki meidän faceen!">Facebookissa</a></p> 
+</footer>
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+</script>
+
+</body>
+</html>
